@@ -1,0 +1,16 @@
+<form class="row g-3" [formGroup]="publishForm" (ngSubmit)="onPublish(publishForm)">
+    <div class="col-12">
+        <input type="text" class="form-control" formControlName="title" placeholder="Article Title">
+    </div>
+
+    <div class="col-md-12">
+        <input type="text" class="form-control" formControlName="about" placeholder="What's this article about?">
+    </div>
+    <div class="col-12">
+        <textarea rows="8" class="form-control" formControlName="desc"></textarea>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Publish</button>
+    </div>
+</form>

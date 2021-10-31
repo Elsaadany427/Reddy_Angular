@@ -1,0 +1,28 @@
+.post .main-info .main-info-img,
+.post .main-info .info {
+    float: left;
+}
+
+.post .main-info img {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    float: left;
+}
+
+.post .main-info .info span {
+    color: #bbb;
+    font-size: 0.8rem;
+    display: block;
+}
+
+.post .main-info .info .auther {
+    display: block;
+    font-weight: 500 !important;
+    color: #5CB85C;
+    text-decoration: none;
+}
+
+.post .main-info .likeDiv {
+    float: right;
+}

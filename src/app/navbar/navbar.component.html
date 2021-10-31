@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">REDDY</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="['/Home']" routerLinkActive="router-link-active"><i class="fas fa-home pr-1"></i>Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/editor']" routerLinkActive="router-link-active"> <i class="far fa-edit pr-1"></i> New Article</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/favourate']" routerLinkActive="router-link-active"><i class="fas fa-cog pr-1"></i>Favourate Articles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/setting']" routerLinkActive="router-link-active"><i class="fas fa-cog pr-1"></i>Setting</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/account' , 50]" routerLinkActive="router-link-active"> <i class="fas fa-user-circle pr-1"></i> Name</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,25 @@
+<div class="post mt-4" *ngFor="let article of articles;  index as idx">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="main-info">
+                <div class="main-info-img">
+                    <img src="https://realworld-temp-api.herokuapp.com/images/smiley-cyrus.jpeg" class="img-responsive mr-1" alt="">
+                </div>
+                <div class="info">
+                    <a href="#" class="auther">Hatem</a>
+                    <span>October 31, 2021</span>
+                </div>
+                <div class="likeDiv">
+                    <app-like [index]="idx"></app-like>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="content">
+                <h1> {{ article.title }} </h1>
+                <p class="lead"> {{ article.about }} </p>
+                <p class="lead"> {{ article.desc }} </p>
+            </div>
+        </div>
+    </div>
+</div>
