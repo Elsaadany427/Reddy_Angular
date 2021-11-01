@@ -26,3 +26,14 @@
 .post .main-info .likeDiv {
     float: right;
 }
+
+.post .content p,
+.post .content a {
+    color: #999;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.post .content a h3 {
+    color: black;
+}

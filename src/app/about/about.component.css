@@ -1,0 +1,73 @@
+.main-info .main-info-img,
+.main-info .info {
+    float: left;
+}
+
+.main-info img {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+    float: left;
+}
+
+.main-info .info span {
+    color: #bbb;
+    font-size: 0.8rem;
+    display: block;
+}
+
+.main-info .info .auther {
+    display: block;
+    font-weight: 500 !important;
+    color: #5CB85C;
+    text-decoration: none;
+}
+
+.banner .comment {
+    margin-top: 50px;
+}
+
+.banner .edit .Buttons {
+    float: right;
+}
+
+.banner .content p {
+    color: #999;
+    font-size: 16px;
+}
+
+.textareaFooter {
+    border-top: 1px solid #e5e5e5;
+    box-shadow: none !important;
+    font-size: 0.8rem;
+    font-weight: 300;
+    border-radius: 0 0 0.25rem 0.25rem;
+    padding: 0.75rem 1.25rem;
+    background-color: #f5f5f5;
+}
+
+.resComment {
+    margin-top: 30px;
+    border: 1px solid #e5e5e5;
+    box-shadow: none !important;
+    position: relative;
+    display: block;
+    margin-bottom: 0.75rem;
+    background-color: #fff;
+    border-radius: 0.25rem;
+}
+
+.resComment .res-block {
+    padding: 1.25rem;
+}
+
+.textareaFooter button {
+    font-weight: 700;
+    float: right;
+}
+
+.textareaFooter img {
+    width: 37px;
+    height: 37px;
+    border-radius: 50%;
+}

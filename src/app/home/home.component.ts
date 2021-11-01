@@ -6,6 +6,7 @@ import { Component, OnInit, Output } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  // check the state
   state: boolean = true;
 
   constructor() { }
@@ -13,9 +14,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // if active
   activeYourFeed(){
     this.state = true;
   }
+  // or not active
   activeGlobalFeed(){
     this.state = false;
   }

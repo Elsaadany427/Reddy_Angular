@@ -26,3 +26,8 @@
 .post .main-info .likeDiv {
     float: right;
 }
+
+.post .content p {
+    color: #999;
+    font-size: 16px;
+}

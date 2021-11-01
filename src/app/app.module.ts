@@ -17,6 +17,7 @@ import { GlobalFeedComponent } from './feeds/global-feed/global-feed.component';
 import { YourFeedComponent } from './feeds/your-feed/your-feed.component';
 import { LikeComponent } from './like/like.component';
 import { FavourateArticleComponent } from './favourate-article/favourate-article.component';
+import { EditComponent } from './about/edit/edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { FavourateArticleComponent } from './favourate-article/favourate-article
     GlobalFeedComponent,
     YourFeedComponent,
     LikeComponent,
-    FavourateArticleComponent
+    FavourateArticleComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

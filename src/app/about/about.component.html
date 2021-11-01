@@ -1,1 +1,67 @@
-<p>about works!</p>
+<div class="banner">
+    <div class="title"></div>
+    <hr>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="edit">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="main-info">
+                            <div class="main-info-img">
+                                <img src="https://realworld-temp-api.herokuapp.com/images/smiley-cyrus.jpeg" class="img-responsive mr-1" alt="">
+                            </div>
+                            <div class="info">
+                                <a href="#" class="auther"> {{ article.title }} </a>
+                                <span>October 31, 2021</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="Buttons">
+                            <button type="button" class="btn btn-success mr-2" (click)="editClicked()"><i class="far fa-edit" ></i> Edit </button>
+                            <button type="submit" class="btn btn-danger  ml-2"><i class="far fa-trash-alt"></i> Delete </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="content">
+                        <p class="lead"> {{ article.about }} </p>
+                        <p class="lead"> {{ article.desc }} </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <form>
+                <div class="comment ">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <textarea class="form-control" rows="3"></textarea>
+                            <div class="textareaFooter">
+                                <img src="https://realworld-temp-api.herokuapp.com/images/smiley-cyrus.jpeg" alt="">
+                                <button class="btn btn-success"> Post comment </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-12">
+            <div class="resComment">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="res-block">
+                            <p>res</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="textareaFooter">
+                            <img src="https://realworld-temp-api.herokuapp.com/images/smiley-cyrus.jpeg" alt="">
+                            <button class="btn btn-danger"> Delete comment </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -8,46 +8,63 @@ import { Subject } from 'rxjs';
 export class ArticlesService implements OnInit {
   // array of articles
   articles: AtricleInterface[] = [];
+  // array for favourate article
   favArticles: AtricleInterface[] = [];
+  // 
   idxSubject = new Subject<number>();
+  // articleAsSubject = new Subject<AtricleInterface>();
 
   constructor() {
     this.idxSubject.subscribe(
       (value: number) => {
         this.articles[value].like = !this.articles[value].like;
-        console.log(this.articles);
         this.getArticles();
       }
     );
   }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
   }
+
   // return this articles
   getArticles() {
     return this.articles.slice();
   }
+
+  // get like of individual article
   getLike(idx: number): boolean | undefined {
     return this.articles[idx].like;
   }
+
   // add article to array
   addArticle(article: AtricleInterface): AtricleInterface[] {
     this.articles.push({ title: article.title, about: article.about, desc: article.desc, like: false });
     return this.articles.slice();
   }
 
+  // get article by id
   getArticleById(id: number): AtricleInterface {
     return this.articles[id];
   }
+
+  // update article
+  UdateArticle(article: AtricleInterface, id: number) {
+    this.articles[id] = { title: article.title, about: article.about, desc: article.desc, like: this.articles[id].like };
+    return this.articles[id];
+  }
+
+  // delete article
   deleteArticles(): AtricleInterface[] {
     this.articles = this.articles.filter(item => item !== item);
     return this.articles.slice();
   }
+  // delete article by id
   deleteArticleById(id: number): AtricleInterface[] {
     this.articles.splice(id, 1);
     return this.articles.slice();
   }
-  getFavourate(){
+  // get Favourate array
+  getFavourate() {
     this.articles.forEach(article => {
       if (article.like == true) {
         var matches = this.favArticles.filter(function (datum) {
@@ -62,6 +79,8 @@ export class ArticlesService implements OnInit {
     });
     return this.favArticles.slice();
   }
+
+  // check if article deleted from fav
   checkFav() {
     this.favArticles.forEach(sigleAritcle => {
       if (sigleAritcle.like === false) {
@@ -69,8 +88,6 @@ export class ArticlesService implements OnInit {
         this.favArticles.splice(idx, 1);
       }
     });
-    console.log("jdjd");
-    console.log(this.favArticles);
     return this.favArticles.slice();
   }
 }
