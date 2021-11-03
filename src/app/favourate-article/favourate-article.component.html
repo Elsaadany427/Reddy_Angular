@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="!checkedFav">
     <!-- if Global state is active -->
     <div class="col-md-6">
         <div class="post mt-4" *ngFor="let article of favArticle;  index as idx">
@@ -26,5 +26,11 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="col-sm-12" *ngIf="checkedFav == true">
+    <div class="alert alert-success" role="alert">
+        This is Article is unliked successfully
     </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="banner">
+<div class="banner" *ngIf="Deleted == false">
     <div class="title"></div>
     <hr>
     <div class="row">
@@ -19,7 +19,7 @@
                     <div class="col-sm-6">
                         <div class="Buttons">
                             <button type="button" class="btn btn-success mr-2" (click)="editClicked()"><i class="far fa-edit" ></i> Edit </button>
-                            <button type="submit" class="btn btn-danger  ml-2"><i class="far fa-trash-alt"></i> Delete </button>
+                            <button type="submit" class="btn btn-danger  ml-2" (click)="deletePost()"><i class="far fa-trash-alt"></i> Delete </button>
                         </div>
                     </div>
                 </div>
@@ -32,36 +32,42 @@
             </div>
         </div>
         <div class="col-sm-12">
-            <form>
-                <div class="comment ">
+            <form #userForm="ngForm" (ngSubmit)="teatAreaSubmited(userForm)">
+                <div class="comment">
                     <div class="row">
                         <div class="col-sm-12">
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" name="textArea" ngModel rows="3"></textarea>
                             <div class="textareaFooter">
                                 <img src="https://realworld-temp-api.herokuapp.com/images/smiley-cyrus.jpeg" alt="">
-                                <button class="btn btn-success"> Post comment </button>
+                                <button class="btn btn-success" type="submit"> Post comment </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-        <div class="col-sm-12">
+        <div class="col-sm-12" *ngFor="let comment of comments; index as idxOfComment">
             <div class="resComment">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="res-block">
-                            <p>res</p>
+                            <p> {{ comment }}</p>
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <div class="textareaFooter">
                             <img src="https://realworld-temp-api.herokuapp.com/images/smiley-cyrus.jpeg" alt="">
-                            <button class="btn btn-danger"> Delete comment </button>
+                            <button class="btn btn-danger" (click)="deleteComment(idxOfComment)"> Delete comment </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="col-sm-12" *ngIf="Deleted == true">
+    <div class="alert alert-danger" role="alert">
+        This is Article deleted successfully
     </div>
 </div>

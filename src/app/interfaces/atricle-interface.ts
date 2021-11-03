@@ -3,4 +3,5 @@ export interface AtricleInterface {
     about?: string;
     desc?:  string;
     like?:boolean;
+    comment?:string[];
 }

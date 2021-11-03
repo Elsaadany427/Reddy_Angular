@@ -17,14 +17,17 @@ export class EditComponent implements OnInit {
   article!: AtricleInterface;
   // the id of this article
   index!: number;  
-  constructor(private articleService: ArticlesService, private route: ActivatedRoute) { }
+   // post edited success
+   Edited: boolean = false; 
+
+  constructor(private articleService: ArticlesService, private route: ActivatedRoute , private router: Router) { }
 
   ngOnInit(): void {
     // getting the article id
     this.index = this.route.snapshot.params['id'];
     // getting article from service by id
     this.article = this.articleService.getArticleById(this.index);
-
+  
     // set form group
     this.editForm = new FormGroup({
       title: new FormControl(this.article.title, [Validators.required, Validators.minLength(3), Validators.maxLength(24)]),
@@ -37,6 +40,10 @@ export class EditComponent implements OnInit {
     // Update the article
     this.index = this.route.snapshot.params['id'];
     this.article = this.articleService.UdateArticle(publishForm.value, this.index);
+    this.Edited = true;
+    setTimeout(() => {
+      this.router.navigate(['/Home']);
+    }, 1000);
+    //this.Edited = false;
   }
-
 }

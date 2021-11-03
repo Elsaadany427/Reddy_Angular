@@ -1,21 +1,22 @@
 import { AtricleInterface } from './../interfaces/atricle-interface';
 import { Injectable, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticlesService implements OnInit {
   // array of articles
-  articles: AtricleInterface[] = [];
+  private articles: AtricleInterface[] = [];
   // array for favourate article
-  favArticles: AtricleInterface[] = [];
+  private favArticles: AtricleInterface[] = [];
   // 
   idxSubject = new Subject<number>();
   // articleAsSubject = new Subject<AtricleInterface>();
 
   constructor() {
-    this.idxSubject.subscribe(
+    this.idxSubject?.subscribe(
       (value: number) => {
         this.articles[value].like = !this.articles[value].like;
         this.getArticles();
@@ -38,8 +39,22 @@ export class ArticlesService implements OnInit {
 
   // add article to array
   addArticle(article: AtricleInterface): AtricleInterface[] {
-    this.articles.push({ title: article.title, about: article.about, desc: article.desc, like: false });
+    this.articles.push({ title: article.title, about: article.about, desc: article.desc, like: false , comment: [] });
     return this.articles.slice();
+  }
+  // add comment
+  addComment(id:number ,comment: string){
+    let arrayOfComments = this.articles[id].comment;
+    arrayOfComments?.push(comment);
+    this.articles[id] = {title: this.articles[id].title, about: this.articles[id].about, desc: this.articles[id].desc, like: this.articles[id].like , comment: arrayOfComments};
+  }
+  // get comments
+  getComments(id:number){
+    return this.articles[id].comment;
+  }
+  // delete comment by id
+  deleteCommentById(commentId: number , postId: number){
+    this.articles[postId].comment?.splice(commentId,1);
   }
 
   // get article by id
@@ -49,7 +64,7 @@ export class ArticlesService implements OnInit {
 
   // update article
   UdateArticle(article: AtricleInterface, id: number) {
-    this.articles[id] = { title: article.title, about: article.about, desc: article.desc, like: this.articles[id].like };
+    this.articles[id] = { title: article.title, about: article.about, desc: article.desc, like: this.articles[id].like , comment:this.articles[id].comment };
     return this.articles[id];
   }
 
@@ -59,9 +74,9 @@ export class ArticlesService implements OnInit {
     return this.articles.slice();
   }
   // delete article by id
-  deleteArticleById(id: number): AtricleInterface[] {
+  deleteArticleById(id: number): void {
     this.articles.splice(id, 1);
-    return this.articles.slice();
+
   }
   // get Favourate array
   getFavourate() {

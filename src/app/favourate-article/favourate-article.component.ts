@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AtricleInterface } from './../interfaces/atricle-interface';
 import { ArticlesService } from './../service/articles.service';
 import { Component, OnInit } from '@angular/core';
@@ -11,8 +12,11 @@ export class FavourateArticleComponent implements OnInit {
   // array of favourate articles
   favArticle: AtricleInterface[] = [];
   // set like
-  like!: boolean ;
-  constructor(private serviceArticle: ArticlesService) { }
+  like!: boolean;
+  // go from favourate page
+  checkedFav: boolean = false;
+
+  constructor(private serviceArticle: ArticlesService, private router: Router) { }
 
   ngOnInit(): void {
     // getting the favourate array from service
