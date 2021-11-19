@@ -1,14 +1,16 @@
-<!-- Creating Two button to share the state 
+<!-- Creating Two button to share the state
     If active Your state clicked the function activeYourFeed() called to active your state
-    else the function activeGlobalFeed() called to active global state  
+    else the function activeGlobalFeed() called to active global state
 -->
 
 <ul class="nav nav-tabs">
     <li class="nav-item">
-        <button class="nav-link active" (click)="activeYourFeed()">Your Feed</button>
+      <!-- If active in your feed -->
+        <button class="nav-link active" (click)="activeYourFeed()"> Your Feed </button>
     </li>
     <li class="nav-item">
-        <button class="nav-link" (click)="activeGlobalFeed()">Global Feed</button>
+      <!-- If active in global feed -->
+        <button class="nav-link" (click)="activeGlobalFeed()"> Global Feed </button>
     </li>
 </ul>
 
